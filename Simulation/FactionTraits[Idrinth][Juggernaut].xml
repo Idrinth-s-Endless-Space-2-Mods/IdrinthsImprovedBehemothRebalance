@@ -3,6 +3,5 @@
     <FactionTrait Name="FactionTraitStartWithJuggernaut"   SubCategory="FactionTrait" TraitCategory="TraitCategoryShips" TraitSubCategory="TraitSubCategoryStartWithJuggernaut" Family="FactionTraitFamilyMilitary" Hidden="false" Custom="true" Cost="10">
         <Command Name="CreateFleet_HomeSystem"          Arguments="Juggernauts_Juggernaut"/>
         <SimulationDescriptorReference Name="FactionTraitStartWithJuggernaut"/>
-        <SimulationDescriptorReference Name="FactionTraitImprovedJuggernauts"/>
     </FactionTrait>
 </Datatable>

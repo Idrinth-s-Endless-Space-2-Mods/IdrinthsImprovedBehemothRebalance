@@ -1,11 +1,17 @@
 <Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="Documentation/Schemas/Amplitude.Unity.Runtime.RuntimeModule.xsd">
   <RuntimeModule Name="IdrinthsImprovedBehemothRebalance" Type="Extension" Version="1.0">
     <Title>Idrinth's Improved Behemoth Rebalance</Title>
-    <Description></Description>
+    <Description>- fixes the bug of not being able to start with a behemoth
+- behemoths are slightly harder to kill
+- behemoths behave more like normal ships
+- behemoths starters have a permanent (small) benefit
+- behemoths produce influence directly for the empire
+    
+Load this aftrt Improved Traits.</Description>
     <Author>Idrinth</Author>
-    <Homepage></Homepage>
+    <Homepage>https://github.com/Idrinth-s-Endless-Space-2-Mods/IdrinthsImpovedBehemothRebalance</Homepage>
     <PreviewImageFile>iibr.jpg</PreviewImageFile>
-    <ReleaseNotes>Public Release</ReleaseNotes>
+    <ReleaseNotes></ReleaseNotes>
     <Tags>Balance</Tags>
     <Plugins>
       <DatabasePlugin DataType="Amplitude.Unity.Simulation.SimulationDescriptor, Assembly-CSharp-firstpass">

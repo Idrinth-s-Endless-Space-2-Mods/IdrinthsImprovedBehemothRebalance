@@ -5,7 +5,7 @@
         <Modifier TargetProperty="SiegePower" Operation="Addition" Value="${Level}" Path="ClassShip"/>
         <BinaryModifier TargetProperty="EmpireEmpirePoint" Operation="Addition" Left="${Level}" Right="{$Level}" BinaryOperation="Multiplication" Path="../ClassEmpire"/>
     </SimulationDescriptor>
-    <SimulationDescriptor Name="FactionTraitImprovedJuggernauts" Type="FactionTrait">
+    <SimulationDescriptor Name="FactionTraitStartWithJuggernaut" Type="FactionTrait">
         <Modifier TargetProperty="ShipHealth" Operation="Addition" Value="1500" Path="ClassEmpire//ClassShip,ShipRoleJuggernaut"/>
     </SimulationDescriptor>
     <SimulationDescriptor Name="ShipSizeJuggernaut"         Type="ShipSize">
