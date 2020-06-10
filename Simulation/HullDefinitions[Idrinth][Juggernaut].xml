@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../../Schemas/HullDefinition.xsd">
+  <!-- Juggernaut -->
+  <HullDefinition Name="HullJuggernaut01Juggernauts" ScoreProvider="WarShipConstructed" Category="CategoryHull" SubCategory="SubCategoryShipDesign" ModuleCostMultiplierProperty="JuggernautModuleCostMultiplier">
+    <CustomCost ResourceName="SystemProduction">360 + 360 * 1.25 * Property(StockLocation, @'../ClassEmpire', ShipRoleJuggernautBuilt) ^ 1.2</CustomCost>
+
+    <PathPrerequisite Flags="Prerequisite,Discard">ClassColonizedStarSystem,ColonizedStarSystemStateColony</PathPrerequisite>
+    <TechnologyPrerequisite Flags="Prerequisite,Edition,Technology,Discard">TechnologyJuggernautUnlock</TechnologyPrerequisite>
+    <DownloadableContentPrerequisite Flags="Discard,Edition">DLCHisshos</DownloadableContentPrerequisite>
+
+    <!-- This flag doesn't have Prerequisite but it has Enqueue: if it fails, the ship cannot be queued, but it will still be finished if already in a queue. -->
+    <InterpreterPrerequisite Flags="MaximumJuggernautsReached,Enqueue">Property(Context, @'../ClassEmpire', JuggernautCountIncludingQueuedOnes) lt Floor(Property(Context, @'../ClassEmpire', MaximumJuggernauts))</InterpreterPrerequisite>
+    <!--<PathPrerequisite Flags="JuggernautInQueue,Enqueue" Inverted="true">../ClassEmpire/ClassColonizedStarSystem,ColonizedStarSystemStateColony,BuildingJuggernaut</PathPrerequisite>-->
+
+    <!-- This flag has Prerequisite: even ships that are queued will fail. -->
+    <InterpreterPrerequisite Flags="Prerequisite,MaximumJuggernautsReached">Property(Context, @'../ClassEmpire', JuggernautCount) lt Floor(Property(Context, @'../ClassEmpire', MaximumJuggernauts))</InterpreterPrerequisite>
+
+    <SimulationDescriptorReference Name="ShipSizeJuggernaut"/>
+    <SimulationDescriptorReference Name="ShipHull01"/>
+    <SimulationDescriptorReference Name="ShipFactionJuggernauts"/>
+    <SimulationDescriptorReference Name="WeaponAvailabilityKinetic"/>
+    <SimulationDescriptorReference Name="WeaponAvailabilityBeam"/>
+    <SimulationDescriptorReference Name="WeaponAvailabilityLaser"/>
+    <SimulationDescriptorReference Name="WeaponAvailabilityMissile"/>
+
+    <!-- encounter-specific flags -->
+    <SimulationDescriptorReference Name="UseEmpireAffinityForUnitSpawn"/>
+    <SimulationDescriptorReference Name="IgnoreAsObstacle"/>
+
+    <!-- Basic juggernaut is locked alone in its fleet, cannot even be moved to hangar (except when being specialized). -->
+    <!--<SimulationDescriptorReference Name="AlwaysInSameFleet"/>
+    <SimulationDescriptorReference Name="ShipMustBeAlone"/>-->
+
+    <ShipDesignLayout>
+      <ShipRoleReference Name="ShipRoleJuggernaut"/>
+      <SectionPattern_Eight>
+        <!-- Core Section -->
+        <CoreSection Name="CoreSection">
+          <VisualSectionName>Core</VisualSectionName>
+          <SimulationDescriptorReference Name="ClassSectionCore"/>
+          <SimulationDescriptorReference Name="ClassSectionCoreJuggernaut"/>
+          <Slot Name="Support01">
+            <RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+            <RestrictedModuleCategory>Squadron</RestrictedModuleCategory>
+            <RestrictedWeaponType>Kinetic</RestrictedWeaponType>
+            <RestrictedWeaponType>Missile</RestrictedWeaponType>
+            <RestrictedWeaponType>Laser</RestrictedWeaponType>
+            <RestrictedWeaponType>Beam</RestrictedWeaponType>
+            <RestrictedWeaponType>KineticRailgun</RestrictedWeaponType>
+            <RestrictedWeaponType>BoardingPod</RestrictedWeaponType>
+            <Direction X="0" Z="1"/>
+            <UISlotName>UICore10</UISlotName>
+          </Slot>
+          <Slot Name="DefenseSupport01">
+            <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+            <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+            <RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+            <RestrictedWeaponType>Kinetic</RestrictedWeaponType>
+            <RestrictedWeaponType>Missile</RestrictedWeaponType>
+            <RestrictedWeaponType>Laser</RestrictedWeaponType>
+            <RestrictedWeaponType>Beam</RestrictedWeaponType>
+            <RestrictedWeaponType>KineticRailgun</RestrictedWeaponType>
+            <RestrictedWeaponType>BoardingPod</RestrictedWeaponType>
+            <Direction X="0" Z="1"/>
+            <UISlotName>UICore12</UISlotName>
+          </Slot>
+        </CoreSection>
+
+        <!-- Forward Section -->
+        <Section Name="SectionN">
+          <VisualSectionName>Front</VisualSectionName>
+          <Slot Name="Support01">
+            <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+            <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+            <Direction X="0" Z="1"/>
+            <UISlotName>UIFront01</UISlotName>
+          </Slot>
+        </Section>
+
+        <!-- Forward/Right Section -->
+        <Section Name="SectionNE">
+          <VisualSectionName>FrontRight</VisualSectionName>
+          <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="45">
+            <RestrictedModuleCategory>Weapon</RestrictedModuleCategory>
+            <RestrictedModuleCategory>Squadron</RestrictedModuleCategory>
+            <RestrictedWeaponType>Kinetic</RestrictedWeaponType>
+            <RestrictedWeaponType>Missile</RestrictedWeaponType>
+            <RestrictedWeaponType>Laser</RestrictedWeaponType>
+            <RestrictedWeaponType>Beam</RestrictedWeaponType>
+            <RestrictedWeaponType>KineticRailgun</RestrictedWeaponType>
+            <RestrictedWeaponType>BoardingPod</RestrictedWeaponType>
+            <LineOfSight>
+              <Direction X="1" Z="0"/>
+              <Angle>120</Angle>
+              <VisualSlot Name="MDL_Wp_SmallSide_Right_04"></VisualSlot>
+              <VisualSlot Name="MDL_Wp_SmallSide_Right_05"></VisualSlot>
+              <VisualSlot Name="MDL_Wp_SmallSide_Right_06"></VisualSlot>
+              <VisualSlot Name="MDL_Wp_SmallSide_Right_07"></VisualSlot>
+            </LineOfSight>
+            <LineOfSight>
+              <Direction X="-1" Z="0"/>
+              <Angle>120</Angle>
+              <VisualSlot Name="MDL_Wp_SmallSide_Left_04"></VisualSlot>
+              <VisualSlot Name="MDL_Wp_SmallSide_Left_05"></VisualSlot>
+              <VisualSlot Name="MDL_Wp_SmallSide_Left_06"></VisualSlot>
+              <VisualSlot Name="MDL_Wp_SmallSide_Left_07"></VisualSlot>
+            </LineOfSight>
+            <UISlotName>UIFrontRightWeapon03</UISlotName>
+          </Slot>
+          <Slot Name="Defense01">
+            <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+            <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+            <Direction X="1" Z="0"/>
+            <UISlotName>UIFrontRight04</UISlotName>
+          </Slot>
+        </Section>
+
+        <!-- Right Section -->
+        <Section Name="SectionE">
+          <VisualSectionName>Right</VisualSectionName>
+          <Slot Name="Weapon01" ShowPositionMarker="true" PositionMarkerAngle="0">
+            <LineOfSight>
+              <Direction X="1" Z="0"/>
+              <Angle>120</Angle>
+              <VisualSlot Name="MDL_Wp_SmallSide_Right_08"></VisualSlot>
+              <VisualSlot Name="MDL_Wp_SmallSide_Right_09"></VisualSlot>
+              <VisualSlot Name="MDL_Wp_SmallSide_Right_10"></VisualSlot>
+              <VisualSlot Name="MDL_Wp_SmallSide_Right_11"></VisualSlot>
+            </LineOfSight>
+            <LineOfSight>
+              <Direction X="-1" Z="0"/>
+              <Angle>120</Angle>
+              <VisualSlot Name="MDL_Wp_SmallSide_Left_08"></VisualSlot>
+              <VisualSlot Name="MDL_Wp_SmallSide_Left_09"></VisualSlot>
+              <VisualSlot Name="MDL_Wp_SmallSide_Left_10"></VisualSlot>
+              <VisualSlot Name="MDL_Wp_SmallSide_Left_11"></VisualSlot>
+            </LineOfSight>
+            <UISlotName>UIRightWeapon05</UISlotName>
+          </Slot>
+          <Slot Name="Defense01">
+            <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+            <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+            <Direction X="1" Z="0"/>
+            <UISlotName>UIRight06</UISlotName>
+          </Slot>
+        </Section>
+
+        <!-- Back/Right Section -->
+        <Section Name="SectionSE">
+          <VisualSectionName>BackRight</VisualSectionName>
+          <Slot Name="Support01">
+            <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+            <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+            <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyJuggernautSupportSlots1</TechnologyPrerequisite>
+            <Direction X="1" Z="0"/>
+            <UISlotName>UIBackRight08</UISlotName>
+          </Slot>
+        </Section>
+
+        <!-- Back Section -->
+        <Section Name="SectionS">
+          <VisualSectionName>Back</VisualSectionName>
+          <Slot Name="Support01">
+            <RestrictedModuleCategory>Defense</RestrictedModuleCategory>
+            <RestrictedModuleCategory>Support</RestrictedModuleCategory>
+            <TechnologyPrerequisite Flags="Prerequisite,Discard">TechnologyJuggernautSupportSlots1</TechnologyPrerequisite>
+            <Direction X="0" Z="1"/>
+            <UISlotName>UIBack09</UISlotName>
+          </Slot>
+        </Section>
+
+        <!-- Back/Left Section -->
+        <Section Name="SectionSW">
+          <VisualSectionName>BackLeft</VisualSectionName>
+        </Section>
+
+        <!-- Left Section -->
+        <Section Name="SectionW">
+          <VisualSectionName>Left</VisualSectionName>
+        </Section>
+
+        <!-- Forward/Left Section -->
+        <Section Name="SectionNW">
+          <VisualSectionName>FrontLeft</VisualSectionName>
+        </Section>
+      </SectionPattern_Eight>
+    </ShipDesignLayout>
+
+    <BattleActionReference Name="Ship_UpdateMedalScoreAfterAttack"/>
+    <BattleActionReference Name="Ship_UpdateMedalScoreAfterDamage"/>
+    <BattleActionReference Name="Ship_Healing"/>
+    <BattleActionReference Name="Ship_OnDestruction"/>
+
+    <LevelUpRuleReference Name="ShipLevelUpRule"/>
+
+    <QueuedSimulationDescriptorReference Name="BuildingJuggernaut"/>
+  </HullDefinition>
+</Datatable>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/FactionTrait.xsd">
+    <FactionTrait Name="FactionTraitStartWithJuggernaut"   SubCategory="FactionTrait" TraitCategory="TraitCategoryShips" TraitSubCategory="TraitSubCategoryStartWithJuggernaut" Family="FactionTraitFamilyMilitary" Hidden="false" Custom="true" Cost="10">
+        <Command Name="CreateFleet_HomeSystem"          Arguments="Juggernauts_Juggernaut"/>
+        <SimulationDescriptorReference Name="FactionTraitStartWithJuggernaut"/>
+        <SimulationDescriptorReference Name="FactionTraitImprovedJuggernauts"/>
+    </FactionTrait>
+</Datatable>

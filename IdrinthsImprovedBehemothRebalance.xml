@@ -1,0 +1,26 @@
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="Documentation/Schemas/Amplitude.Unity.Runtime.RuntimeModule.xsd">
+  <RuntimeModule Name="IdrinthsImprovedBehemothRebalance" Type="Extension" Version="1.0">
+    <Title>Idrinth's Improved Behemoth Rebalance</Title>
+    <Description></Description>
+    <Author>Idrinth</Author>
+    <Homepage></Homepage>
+    <PreviewImageFile>iibr.jpg</PreviewImageFile>
+    <ReleaseNotes>Public Release</ReleaseNotes>
+    <Tags>Balance</Tags>
+    <Plugins>
+      <DatabasePlugin DataType="Amplitude.Unity.Simulation.SimulationDescriptor, Assembly-CSharp-firstpass">
+        <FilePath>Simulation/SimulationDescriptors[Idrinth][*].xml</FilePath>
+      </DatabasePlugin>
+      <DatabasePlugin DataType="HullDefinition, Assembly-CSharp">
+        <FilePath>Simulation/HullDefinitions[Idrinth][*].xml</FilePath>
+      </DatabasePlugin>
+      <DatabasePlugin DataType="FactionTrait, Assembly-CSharp" Priority="20">
+        <ExtraTypes>
+          <ExtraType DataType="FactionAffinity, Assembly-CSharp"/>
+          <ExtraType DataType="FactionAffinityMapping, Assembly-CSharp"/>
+        </ExtraTypes>
+        <FilePath>Simulation/FactionTraits[Idrinth][*].xml</FilePath>
+      </DatabasePlugin>
+    </Plugins>
+  </RuntimeModule>
+</Datatable>
