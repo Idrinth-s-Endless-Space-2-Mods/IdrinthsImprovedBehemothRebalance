@@ -1,4 +1,4 @@
-<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="Documentation/Schemas/Amplitude.Unity.Runtime.RuntimeModule.xsd">
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="Schemas/Amplitude.Unity.Runtime.RuntimeModule.xsd">
   <RuntimeModule Name="IdrinthsImprovedBehemothRebalance" Type="Extension" Version="1.0">
     <Title>Idrinth's Improved Behemoth Rebalance</Title>
     <Description>- fixes the bug of not being able to start with a behemoth
@@ -9,9 +9,9 @@
 
             This mod is still hightly WIP!
             
-            Source Code is at https://github.com/Idrinth-s-Endless-Space-2-Mods/IdrinthsImpovedBehemothRebalance - contributions are always highly welcome.</Description>
+            Source Code is at https://github.com/Idrinth-s-Endless-Space-2-Mods/IdrinthsImprovedBehemothRebalance - contributions are always highly welcome.</Description>
     <Author>Idrinth</Author>
-    <Homepage>https://github.com/Idrinth-s-Endless-Space-2-Mods/IdrinthsImpovedBehemothRebalance</Homepage>
+    <Homepage>https://github.com/Idrinth-s-Endless-Space-2-Mods/IdrinthsImprovedBehemothRebalance</Homepage>
     <PreviewImageFile>iibr.jpg</PreviewImageFile>
     <ReleaseNotes></ReleaseNotes>
     <Tags>Balance</Tags>

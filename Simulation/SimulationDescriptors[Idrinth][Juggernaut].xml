@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="../Schemas/Amplitude.Unity.Simulation.SimulationDescriptor.xsd">
     <SimulationDescriptor Name="ShipRoleJuggernaut" Type="ShipRole">
-        <Modifier TargetProperty="MaximumHealth" Operation="Addition" Value="5000" Path="ClassShip/ClassSectionCore"/>
+        <Modifier TargetProperty="ShipHealth" Operation="Addition" Value="5000" Path="ClassShip"/>
         <Modifier TargetProperty="SiegePower" Operation="Addition" Value="${Level}" Path="ClassShip"/>
-        <BinaryModifier TargetProperty="EmpireEmpirePoint" Operation="Addition" Left="${Level}" Right="{$Level}" BinaryOperation="Multiplication" Path="../ClassEmpire"/>
+        <Modifier TargetProperty="EmpireEmpirePoint" Operation="Addition" Value="5" Path="../ClassEmpire"/>
+        <BinaryModifier TargetProperty="EmpireEmpirePoint" Operation="Addition" Left="${Level}" Right="{$Level}" BinaryOperation="Multiplication" Path="ClassShip/../ClassStarSystem"/>
     </SimulationDescriptor>
     <SimulationDescriptor Name="FactionTraitStartWithJuggernaut" Type="FactionTrait">
         <Modifier TargetProperty="ShipHealth" Operation="Addition" Value="1500" Path="ClassEmpire//ClassShip,ShipRoleJuggernaut"/>
